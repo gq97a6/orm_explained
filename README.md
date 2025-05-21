@@ -7,7 +7,7 @@
 - Zerowa popularność
 - Wszystko i wszyscy mylą to z `Object-Relational Mapping`
 
-# ORM
+## Podstawy ORM
 
 - **Instancja**
     - Podobne do konceptu instacji w programowaniu obiektowym
@@ -53,8 +53,7 @@
     *Reprezentacja graficzna predyktatu*
 
     ![](imgs/predyktat2.png "")\
-    *Reprezentacja graficzna predyktatu z opisem relacji*\
-    *Napis to część predyktatu, ***nie jest*** relacją*
+    *Reprezentacja graficzna predyktatu z nazwą predykatu*\
 
 - **Relacja**
     - Jest to **instancja** `predyktatu` zachodząca pomiędzy dwiema **instancjami** `obiektu` *(obiekt to encja lub wartość)*
@@ -72,7 +71,7 @@
 
     - **Gdy typ identyfikatora nie jest specificzny dla danej encji:**
         - np. **nazwę** może mieć wiele różnych encji *(nazwa produktu, nazwa kursu, nazwa lokalizacji)*
-        - Na symbolu encji skrótowej, nazwa identyfikatora jest poprzedzona kropką
+        - Na symbolu encji skrótowej, nazwa identyfikatora jest poprzedzona kropką *(eg. [Simple mandatory role constraint](./official_glossary.pdf))*
         - Nazwa wartości powstaje przez złączenie nazwy encji i nazwy identyfikatora
             - np. gdy skrótowa encja ma postać: **Produkt (.Nazwa)** to nazwa wartości to **ProduktNazwa**
             - np. gdy skrótowa encja ma postać: **Kurs (.Nazwa)** to nazwa wartości to **KursNazwa**
@@ -121,3 +120,159 @@
         - np. Każdy **Kierowca** to **Pracownik**
         - np. **Osoba** nie może być jednocześnie **Uczniem** i **Nauczycielem**
         - np. **Uczeń** jest **Ubezpieczony**
+
+## Symbole w ORM
+
+------
+![](imgs/6.png "")
+
+Obiekt typu encja
+
+------
+![](imgs/8.png "")
+
+Obiekt typu wartość
+
+------
+![](imgs/16.png "")
+
+|                                      |                                                                         |
+|--------------------------------------|-------------------------------------------------------------------------|
+| Pojedyńczy prostokącik               | Rola                                                                    |
+| Grupa dwóch lub więcej prostokącików | Predyktat                                                               |
+| Tekst                                | Nazwa predyktatu                                                        |
+| Czarny trójkącik                     | Wskazuje kierunek czytania *(używany jeżeli jest inny niż standardowy)* |
+
+------
+![](imgs/17.png "")
+
+Określenie że dana encja musi brać udział w danej roli:
+- Każda osoba jest urodzona w jakimś kraju
+
+------
+![](imgs/9.png "")
+
+**Pojedyńcza linia**\
+Określenie że każda instancja danej roli może brać udział w tym fakcie tylko raz:
+- Każda osoba ma tylko jedną płeć, ale wiele osób może mieć tą samą płeć
+- Każda osoba ma tylko jeden kraj urodzenia, ale wiele osób może być urodzonym w tym samym kraju
+- Każda osoba może być prezydentem tylko jednego kraju, a każdy kraj może mieć tylko jednego prezydenta
+
+<br>
+
+**Ciągła linia nad wieloma rolami**\
+Określenie że każda grupa instancji danych ról może brać udział w tym fakcie tylko raz:
+- Każda osoba może mówić w wielu językach, jednak taka para jest unikatowa
+
+------
+![](imgs/10.png "")
+
+**Podwójna pojedyńcza linia**\
+TODO
+- TODO
+
+------
+![](imgs/22.png "")
+
+**Ciągła linia nad częścią z ról**
+Określenie że każda grupa instancji danych ról może brać udział w tym fakcie tylko raz:
+- Dana dróżyna może brać udział tylko raz w danym konkursie
+- Dane miejsce może być tylko raz zdobyte w danym konkursie
+
+------
+![](imgs/7.png "")
+
+Nazwa roli:
+- Pracodawca zatrudnia pracownika
+
+------
+![](imgs/5.png "")
+
+Określenie że populacje dwóch ról są sobie równe:
+- W każdym przypadku, gdy u Pacjenta wykonano pomiar ciśnienia skurczowego, ten sam Pacjent musi również mieć wykonany pomiar ciśnienia rozkurczowego i odwrotnie
+
+
+------
+![](imgs/15.png "")
+
+Określenie że dana encja nie może brać udziału w obu rolach na raz:
+- Osoba nie może być jednocześnie wdową i zamężna
+- Autor nie może być recenzentem własnej książki
+
+------
+![](imgs/18.png "")
+
+Określenie że dana encja musi brać udział w minimum jednej z ról
+- Gość musi mieć paszport lub prawo jazdy lub oba
+
+------
+![](imgs/19.png "")
+
+Określenie że populacja danej roli jest podzbiorem populacji innej roli lub są one równe:
+- Populacja osób palących zawiera się w populacji osób z wyższym ryzykiem zachorowania na raka
+- Każa osoba która dostała ocenę z kursu jest na niego zapisana
+
+------
+![](imgs/20.png "")
+
+Określenie że suma populacji dwóch ról jest podzbiorem populacji innej roli lub są one równe:
+- Jeśli doradca pełni służbę w danym kraju, musi posługiwać się językiem, który jest często używany w tym kraju
+
+------
+![](imgs/3.png "")
+
+Określenie zewnętrznej unikatowości
+
+------
+![](imgs/13.png "")
+
+Określenie rodzaju nierówności pomiędzy wartościami dwóch ról:
+- Data końca projektu jest w dniu rozpoczęcia projektu lub po nim
+
+------
+![](imgs/4.png "")
+
+Określenie jakie wartości może przyjmować obiekt:
+- Wiek to liczba w zakresie od zera do nieskończoności dodatniej
+- Ocena to litera od A do F
+- Ocena to liczba w zakresie od 1 do 7
+- Ocena pozytywna to liczba w zakresie od 50 do 100
+- Ujemna temperatura do liczba większa bądz równa -273.15 i mniejsza od 0
+- Płeć to albo M albo F
+
+------
+![](imgs/11.png "")
+
+Określenie jakie wartości może przyjmować relacja.
+
+------
+![](imgs/14.png "")
+
+Określenie ile raz dana encja może uczestniczyć w danej roli:
+- Ekspert to osoba która
+    - brała udział w od 4 do 7 paneli
+    - jest recenzentem minmum 5 prac
+    - każda liczona praca musi być zrecenzowana przez minimum 2 ekspertów
+- Dana osoba ma być jurorem 12 razy
+
+------
+![](imgs/21.png "")
+
+Określenie ile raz dana kombinacja roli może mieć miejsce:
+- Student może zapisać się na maksymalnie dwa kursy
+
+------
+![](imgs/1.png "")
+
+Określenie że dana encja jest podtypem drugiej:
+- Wykładowca jest pracownikiem, a pracownik jest człowiekiem
+- Student jest człowiekiem
+- Student-pracownik jest jednocześnie studentem i pracownikiem
+
+------
+![](imgs/2.png "")
+
+Ograniczenie podtypów:
+- Zwierzę nie może być jednocześnie psem i kotem
+- Każdy członek zespołu musi być albo graczem albo trenerem
+- Każda osoba jest albo kobietą albo mężczyzną
