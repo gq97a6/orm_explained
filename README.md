@@ -176,7 +176,7 @@ TODO
 
 **Ciągła linia nad częścią z ról**\
 Określenie że każda grupa instancji danych ról może brać udział w tym fakcie tylko raz:
-- Dana dróżyna może brać udział tylko raz w danym konkursie
+- Dana drużyna może brać udział tylko raz w danym konkursie
 - Dane miejsce może być tylko raz zdobyte w danym konkursie
 
 ------
