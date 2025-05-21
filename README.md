@@ -146,7 +146,7 @@ Obiekt typu wartość
 ------
 ![](imgs/17.png "")
 
-Określenie że dana encja musi brać udział w danej roli:
+Określenie że każda instancja danej encji musi brać udział w danej roli:
 - Każda osoba jest urodzona w jakimś kraju
 
 ------
